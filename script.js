@@ -79,7 +79,11 @@ buttons.forEach(button => button.addEventListener("click", function() {
                 const num1 = Number(firstNumber);
                 const num2 = Number(secondNumber);
                 const result = operate(num1, operator, num2);
-                p.textContent = result.toFixed(2); // Display result
+                if(typeof result == "number" && !Number.isInteger(result)) {
+                    p.textContent = result.toFixed(2); 
+                } else {
+                p.textContent = result;
+                }
                 firstNumber = result.toString();
                 secondNumber = "";
                 operator = null;
